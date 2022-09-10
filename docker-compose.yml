@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+    nodeserver:
+        # place to find Dockerfile
+        build:
+            context: ./app
+        #ports:
+        #    - "8080:8080"
+        # commented out to prevent direct access to nodeserver
+    nginx:
+        restart: always
+        # place to find Dockerfile
+        build:
+            context: ./nginx
+        ports:
+            - "3000:5000"
+
+# client --> nginx --> nodeserver
